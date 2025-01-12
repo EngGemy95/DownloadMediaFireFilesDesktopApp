@@ -16,8 +16,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-
 /**
  *
  * @author MohamedGamal
@@ -29,7 +27,7 @@ public class DownloadFile {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SwingUtilities.invokeLater(DownloadFile::createAndShowGUI);
+        createAndShowGUI();
     }
 
     private static void createAndShowGUI() {
@@ -71,9 +69,6 @@ public class DownloadFile {
                 System.out.println(saveFile);
                 
                 MediaFireDownloader downloader = new MediaFireDownloader();
-                // MediaFire link and file save path
-                //String mediaFireUrl = "https://www.mediafire.com/file/your_file_link";
-                //String saveFilePath = "C:/path/to/save/your_file.apk";
                 String saveFilePath = saveFile.getAbsolutePath();
 
                 // Call the downloader with a progress listener
@@ -84,10 +79,13 @@ public class DownloadFile {
                         statusLabel.setText("Download File Completed.");
                     }
                 });
+                
             }
         });
 
         frame.setVisible(true);
     }
+    
+    
 
 }
